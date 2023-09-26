@@ -1,5 +1,1 @@
-while true; do
-   xsetroot -name "$( date +"%F %R" )"
-   sleep 2
-done
 exec dwm
