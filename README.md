@@ -5,3 +5,5 @@ ST font changed to 16
 
 keep it simple stupid wallpaper script for dwm  
 
+
+"dwm.desktop" goes into /usr/share/xsessions/
