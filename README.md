@@ -7,4 +7,4 @@ keep it simple stupid wallpaper script for dwm
 
 "dwm.desktop" goes into /usr/share/xsessions/
 
-".xinitrc" Doesn't work with lighdm with "dwm.desktop"
+".xinitrc" Doesn't work with lighdm (or any other login managers) with "dwm.desktop"
