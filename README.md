@@ -3,6 +3,10 @@ Mod key changed to MOD4
 
 ST font changed to 16  
 
+ST patch list - alpha
+
+DWM patch list - N/A
+
 keep it simple stupid wallpaper script for dwm  
 
 "xsessions" goes into /usr/share/
