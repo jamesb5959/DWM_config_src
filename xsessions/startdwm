@@ -1,7 +1,8 @@
-# Statusbar loop
 while true; do
    xsetroot -name "$( date +"%m/%d/%Y %I:%M %p" )"
    sleep 1s    # Update time every second
 done &
-feh --bg-scale /path/to/image.file
 exec /usr/local/bin/dwm
+sleep 1s
+feh --bg-scale 005.jpg
+xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
