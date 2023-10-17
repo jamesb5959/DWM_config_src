@@ -2,6 +2,6 @@ while true; do
    xsetroot -name "$( date +"%m/%d/%Y %I:%M %p" )"
    sleep 1s    # Update time every second
 done &
-exec /usr/local/bin/dwm
-feh --bg-scale 005.jpg
-xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+exec /usr/local/bin/dwm &
+feh --bg-scale 005.jpg &
+xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55
