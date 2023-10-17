@@ -3,5 +3,4 @@ while true; do
    xsetroot -name "$( date +"%m/%d/%Y %I:%M %p" )"
    sleep 1s    # Update time every second
 done &
-feh --bg-scale /path/to/image.file
 exec dwm
