@@ -7,7 +7,7 @@ endif
 set background=dark
 
 " For light version.
-set background=light
+" set background=light
 
 " Set contrast.
 " This configuration option should be placed before `colorscheme everforest`.
