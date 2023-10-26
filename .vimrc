@@ -1,3 +1,11 @@
+set number
+
+set laststatus=2
+set noshowmode
+
+autocmd VimEnter * NERDTree | wincmd p
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 " Important!!
 if has('termguicolors')
   set termguicolors
