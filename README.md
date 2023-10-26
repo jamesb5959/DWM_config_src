@@ -14,3 +14,6 @@ keep it simple stupid wallpaper script for dwm
 ".xinitrc" Doesn't work with lighdm (or any other login managers) with "dwm.desktop"
 
 To get the same functionality as ".xinitrc" the "dwm.desktop" uses a startup script similar to ".xinitrc" called "startdwm"
+
+VIM addons -
+Change vim folder to .vim
