@@ -1,9 +1,13 @@
 # DWM_config_src
-Mod key changed to MOD4  
 
 ST font changed to 16  
 
 ST patch list - alpha
+
+ST Theme - everforest
+
+------------------------------------
+Mod key changed to MOD4  
 
 DWM patch list - N/A
 
@@ -15,5 +19,7 @@ keep it simple stupid wallpaper script for dwm
 
 To get the same functionality as ".xinitrc" the "dwm.desktop" uses a startup script similar to ".xinitrc" called "startdwm"
 
+------------------------------------
 VIM addons -
+
 Change vim folder to .vim
