@@ -1,5 +1,8 @@
 # DWM_config_src
 
+Install by running - "sudo ./start"
+
+------------------------------------
 ST font changed to 16  
 
 ST patch list - alpha
