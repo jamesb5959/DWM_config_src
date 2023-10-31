@@ -20,6 +20,6 @@ keep it simple stupid wallpaper script for dwm
 To get the same functionality as ".xinitrc" the "dwm.desktop" uses a startup script similar to ".xinitrc" called "startdwm"
 
 ------------------------------------
-VIM addons -
-
+VIM addons - coc.nvim, lightline, nerdtree, vim-polyglot
+VIM Theme - everforest (made in terminal.sexy)
 Change vim folder to .vim
