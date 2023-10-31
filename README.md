@@ -21,5 +21,7 @@ To get the same functionality as ".xinitrc" the "dwm.desktop" uses a startup scr
 
 ------------------------------------
 VIM addons - coc.nvim, lightline, nerdtree, vim-polyglot
+
 VIM Theme - everforest (made in terminal.sexy)
+
 Change vim folder to .vim
