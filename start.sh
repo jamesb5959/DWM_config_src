@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the required packages
-required_packages=("package1" "package2" "package3")
+required_packages=("firefox" "discord" "feh" "xorg-xinit" "xorg-xsetroot")
 
 # Function to check and install packages
 check_and_install_packages() {
