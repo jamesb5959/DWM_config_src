@@ -1,10 +1,25 @@
 #!/bin/bash
 
-# Check if the script is running with superuser privileges
-if [ "$(id -u)" -ne 0 ]; then
-    echo "This script needs to be run as sudo. Please use 'sudo' to execute it."
-    exit 1
-fi
+# Define the required packages
+required_packages=("package1" "package2" "package3")
+
+# Function to check and install packages
+check_and_install_packages() {
+    local missing_packages=()
+    for pkg in "${required_packages[@]}"; do
+        if ! pacman -Qs "$pkg" &>/dev/null; then
+            missing_packages+=("$pkg")
+        fi
+    }
+
+    if [ "${#missing_packages[@]}" -gt 0 ]; then
+        echo "Installing missing packages: ${missing_packages[@]}"
+        sudo pacman -S "${missing_packages[@]}"
+    fi
+}
+
+# Check and install required packages
+check_and_install_packages
 
 # Change directory to the 'src' folder
 cd ~/src
