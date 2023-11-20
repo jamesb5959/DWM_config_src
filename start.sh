@@ -14,7 +14,10 @@ check_and_install_packages() {
 
     if [ "${#missing_packages[@]}" -gt 0 ]; then
         echo "Installing missing packages: ${missing_packages[@]}"
-        sudo pacman -S "${missing_packages[@]}"
+        sudo pacman -S "${missing_packages[@]}" || {
+            echo "Failed to install the following packages: ${missing_packages[@]}"
+            echo "Please install them manually."
+        }
     fi
 }
 
