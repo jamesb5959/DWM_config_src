@@ -8,7 +8,7 @@ sudo pacman -Syu
 echo "Blackarch install completed."
 
 # Define the required packages
-required_packages=("firefox" "discord" "feh" "xorg-xinit" "xorg-xsetroot" "exploitdb" "vim" "git" "w3m" "neofetch")
+required_packages=("firefox" "discord" "feh" "xorg-xinit" "xorg-xsetroot" "exploitdb" "vim" "git" "w3m" "neofetch" "lightdm")
 
 # Function to check and install packages
 check_and_install_packages() {
