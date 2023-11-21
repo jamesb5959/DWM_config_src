@@ -5,7 +5,7 @@ Install by running - "sudo ./start"
 ------------------------------------
 ST font changed to 16  
 
-ST patch list - alpha
+ST patch list - alpha, w3m
 
 ST Theme - everforest
 
