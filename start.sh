@@ -1,5 +1,12 @@
 #!/bin/bash
 
+curl -O https://blackarch.org/strap.sh
+echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
+chmod +x strap.sh
+sudo ./strap.sh
+sudo pacman -Syu
+echo "Blackarch install completed."
+
 # Define the required packages
 required_packages=("firefox" "discord" "feh" "xorg-xinit" "xorg-xsetroot" "exploitdb" "vim" "git" "w3m" "neofetch")
 
@@ -23,6 +30,8 @@ check_and_install_packages() {
 
 # Check and install required packages
 check_and_install_packages
+
+echo "Downloading packages completed."
 
 # Change directory to the 'src' folder
 cd ~/src
