@@ -28,3 +28,11 @@ VIM addons - coc.nvim, lightline, nerdtree, vim-polyglot
 VIM Theme - everforest (made in terminal.sexy)
 
 Change vim folder to .vim
+
+------------------------------------
+Hooks go into "/etc/libvirt/"
+KVM XML needs to be edited to work with scripts. Works with supergfx
+
+CPU isolating and pinning
+
+For mux gpu with windows 10 or 11. 
