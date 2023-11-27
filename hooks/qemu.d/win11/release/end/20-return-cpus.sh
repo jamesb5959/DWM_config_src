@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Load VM variables
-source "/etc/libvirt/hooks/qemu.d/win10/vm-vars.conf"
+source "/etc/libvirt/hooks/qemu.d/win11/vm-vars.conf"
 
 ## Return CPU cores as per set variable
 systemctl set-property --runtime -- user.slice AllowedCPUs=$SYS_TOTAL_CPUS

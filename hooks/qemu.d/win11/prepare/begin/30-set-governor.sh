@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Load VM variables
-source "/etc/libvirt/hooks/qemu.d/win10/vm-vars.conf"
+source "/etc/libvirt/hooks/qemu.d/win11/vm-vars.conf"
 
 ## Set CPU governor to mode indicated by variable
 CPU_COUNT=0
