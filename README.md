@@ -5,14 +5,14 @@ Install by running - "sudo ./start"
 ------------------------------------
 ST font changed to 16  
 
-ST patch list - alpha, w3m
+ST patch list - alpha, w3m, scrollback
 
 ST Theme - everforest
 
 ------------------------------------
 Mod key changed to MOD4  
 
-DWM patch list - N/A
+DWM patch list - fullgaps
 
 keep it simple stupid wallpaper script for dwm  
 
