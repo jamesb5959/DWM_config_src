@@ -54,7 +54,7 @@ mv src ~/src
 cd ~/src
 
 # Compile and install in the specified order
-for dir in dmenu st dwm; do
+for dir in dmenu st dwm slstatus; do
     cd $dir
     make clean install
     cd ..
