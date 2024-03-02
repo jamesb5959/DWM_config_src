@@ -27,17 +27,19 @@ required_packages=("firefox" "discord" "feh" "xorg-server" "xorg-xinit" "xorg-xs
 check_and_install_packages() {
     local missing_packages=()
     for pkg in "${required_packages[@]}"; do
-        if ! pacman -Qs "$pkg" &>/dev/null; then
+        if ! pacman -Q "$pkg" &> /dev/null; then
             missing_packages+=("$pkg")
         fi
-    }
+    done
 
     if [ "${#missing_packages[@]}" -gt 0 ]; then
         echo "Installing missing packages: ${missing_packages[@]}"
-        sudo pacman -S "${missing_packages[@]}" || {
+        sudo pacman -S --noconfirm "${missing_packages[@]}" || {
             echo "Failed to install the following packages: ${missing_packages[@]}"
-            echo "Please install them manually."
+            exit 1
         }
+    else
+        echo "All required packages are already installed."
     fi
 }
 
