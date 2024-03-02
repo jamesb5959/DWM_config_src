@@ -21,10 +21,10 @@ echo "Server = https://arch.asus-linux.org" >> /etc/pacman.conf
 
 pacman -Suy
 # Define the required packages
-required_packages=("firefox" "discord" "feh" "xorg-server" "xorg-xinit" "xorg-xsetroot" "picom" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "asusctl" "supergfxctl" "rog-control-center")
+required_packages=("firefox" "discord" "feh" "xorg-server" "xorg-xinit" "xorg-xsetroot" "picom" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "asusctl" "supergfxctl" "rog-control-center" "nvidia")
 
 # Function to check and install packages
-check_and_install_packages() {
+check_and_install_packages_arch() {
     local missing_packages=()
     for pkg in "${required_packages[@]}"; do
         if ! pacman -Q "$pkg" &> /dev/null; then
@@ -43,8 +43,37 @@ check_and_install_packages() {
     fi
 }
 
+check_and_install_packages_void() {
+    local missing_packages=()
+    for pkg in "${required_packages[@]}"; do
+        if ! xbps-query -Rs "$pkg" &>/dev/null; then
+            missing_packages+=("$pkg")
+        fi
+    done
+
+    if [ ${#missing_packages[@]} -gt 0 ]; then
+        echo "Installing missing packages: ${missing_packages[@]}"
+        sudo xbps-install -Su "${missing_packages[@]}" || {
+            echo "Failed to install the following packages: ${missing_packages[@]}"
+            echo "Please install them manually."
+            return 1
+        }
+    else
+        echo "All required packages are already installed."
+    fi
+}
+
 # Check and install required packages
-check_and_install_packages
+if grep -q 'ID=arch' /etc/os-release; then
+    echo "Running on Arch Linux, proceeding..."
+    check_and_install_packages_arch
+elif grep -q 'ID=void' /etc/os-release; then
+    echo "Running on Void Linux, proceeding..."
+    check_and_install_packages_void
+else
+    echo "This script is intended for Arch Linux or Void Linux. Exiting..."
+    exit 1
+fi
 
 echo "Downloading packages completed."
 
