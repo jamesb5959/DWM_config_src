@@ -21,7 +21,7 @@ echo "Server = https://arch.asus-linux.org" >> /etc/pacman.conf
 
 pacman -Suy
 # Define the required packages
-required_packages=("firefox" "discord" "feh" "xorg-server" "xorg-xinit" "xorg-xsetroot" "xcompmgr" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "asusctl" "supergfxctl" "rog-control-center")
+required_packages=("firefox" "discord" "feh" "xorg-server" "xorg-xinit" "xorg-xsetroot" "picom" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "asusctl" "supergfxctl" "rog-control-center")
 
 # Function to check and install packages
 check_and_install_packages() {
