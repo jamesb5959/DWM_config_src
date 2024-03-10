@@ -8,7 +8,8 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias unzip='bsdtar xvf'
-#I added it as an alias to advoid running it on startup and just when I need it
+
+# I added it as an alias to advoid running it on startup and just when I need it
 alias java='export _JAVA_AWT_WM_NONREPARENTING=1'
 
 # PS1='[\u@\h \W]\$ '
