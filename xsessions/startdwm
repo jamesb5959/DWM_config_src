@@ -1,4 +1,4 @@
 slstatus &
 exec /usr/local/bin/dwm &
-feh --bg-scale /usr/share/xsessions/eva01.png &
-xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55
+xwallpaper --no-randr --tile 005.jpg &
+picom &
