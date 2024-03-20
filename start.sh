@@ -5,7 +5,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 
 # Define the required packages
-required_packages=("firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "asusctl" "supergfxctl" "rog-control-center" "nvidia")
+required_packages=("firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "vim" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia")
 required_packages_void=("firefox" "feh" "xorg-server" "xinit" "xsetroot" "picom" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "nvidia")
 
 # Function to check and install packages
@@ -69,7 +69,6 @@ if grep -q 'ID=arch' /etc/os-release; then
     check_and_install_packages_arch
     systemctl enable --now power-profiles-daemon.service
     systemctl enable --now supergfxd
-    systemctl enable lightdm.service
 elif grep -q 'ID=void' /etc/os-release; then
     echo "Running on Void Linux, proceeding..."
     check_and_install_packages_void
@@ -94,6 +93,11 @@ for dir in dmenu st dwm slstatus; do
 done
 
 # Move 'xsessions' to /usr/share/
+cd ly
+make
+make install installsystemd
+systemctl enable ly.service
+
 cd ~/DWM_config_src/
 mv xsessions /usr/share/
 cd /usr/share/xsessions/
