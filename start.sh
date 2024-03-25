@@ -5,7 +5,7 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 
 # Define the required packages
-required_packages=("firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "vim" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia")
+required_packages=("firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "vim" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop")
 required_packages_void=("firefox" "feh" "xorg-server" "xinit" "xsetroot" "picom" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "nvidia")
 
 # Function to check and install packages
