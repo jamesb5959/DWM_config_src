@@ -7,7 +7,7 @@ static int min_width = 500;                    /* minimum width when centered */
 static const unsigned int alpha = 0xa0;     /* Amount of opacity. 0xff is opaque             */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-	"monospace:size=10"
+	"JetBrainsMono Nerd Font:size=10"
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
@@ -33,3 +33,6 @@ static unsigned int lines      = 0;
  * for example: " /?\"&[]"
  */
 static const char worddelimiters[] = " ";
+
+/* Size of the window border */
+static unsigned int border_width = 0;

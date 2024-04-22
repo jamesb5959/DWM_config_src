@@ -1,31 +1,24 @@
 --- dmenu.c
 +++ dmenu.c
-@@ -26,14 +26,16 @@
- #define TEXTW(X)              (drw_fontset_getwidth(drw, (X)) + lrpad)
+@@ -684,9 +684,11 @@ setup(void)
+ 	swa.override_redirect = True;
+ 	swa.background_pixel = scheme[SchemeNorm][ColBg].pixel;
+ 	swa.event_mask = ExposureMask | KeyPressMask | VisibilityChangeMask;
+-	win = XCreateWindow(dpy, root, x, y, mw, mh, 0,
++	win = XCreateWindow(dpy, root, x, y, mw, mh, border_width,
+ 	                    CopyFromParent, CopyFromParent, CopyFromParent,
+ 	                    CWOverrideRedirect | CWBackPixel | CWEventMask, &swa);
++	if (border_width)
++		XSetWindowBorder(dpy, win, scheme[SchemeSel][ColBg].pixel);
+ 	XSetClassHint(dpy, win, &ch);
  
- /* enums */
--enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast }; /* color schemes */
-+enum { SchemeNorm, SchemeSel, SchemeHp, SchemeOut, SchemeLast }; /* color schemes */
  
- struct item {
- 	char *text;
- 	struct item *left, *right;
--	int out;
-+	int out, hp;
- };
- 
-+static const char **hpitems = NULL;
-+static int hplength = 0;
- static char text[BUFSIZ] = "";
- static char *embed;
- static int bh, mw, mh;
-@@ -755,7 +801,8 @@ static void
- usage(void)
- {
- 	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
--	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
-+	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n"
-+	      "             [-hb color] [-hf color] [-hp items]\n", stderr);
- 	exit(1);
- }
+@@ -757,6 +759,8 @@ main(int argc, char *argv[])
+ 			colors[SchemeSel][ColFg] = argv[++i];
+ 		else if (!strcmp(argv[i], "-w"))   /* embedding window id */
+ 			embed = argv[++i];
++		else if (!strcmp(argv[i], "-bw"))
++			border_width = atoi(argv[++i]); /* border width */
+ 		else
+ 			usage();
  
