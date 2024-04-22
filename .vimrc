@@ -1,18 +1,18 @@
-" set termguicolors
-" loading the plugin
-let g:webdevicons_enable = 1
-
-" If more than one window and previous buffer was NERDTree, go back to it.
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-" Start NERDTree when Vim is started without file arguments.
+" Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufwinEnter * NERDTreeMirror
+
+" Open term
+autocmd BufwinEnter * if exists('b:NERDTree') !=1 && exists('b:terminal') != 1 |  below terminal
+autocmd BufwinEnter * wincmd k
+autocmd BufwinEnter * 10 wincmd +
 
 " Important!!
 if has('termguicolors')
-          set termguicolors
+        set termguicolors
 endif
 
 " For dark version.
