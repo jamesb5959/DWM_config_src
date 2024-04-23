@@ -3,6 +3,7 @@
 if [ "$(id -u)" != "0" ]; then
     echo "This script must be run with sudo."
     exit 1
+fi
 
 # Define the required packages
 required_packages=("ttf-jetbrains-mono-nerd" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "vim" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop")
