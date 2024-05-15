@@ -1,17 +1,59 @@
+######################################################################
 #
-# ~/.bashrc
 #
+#           ██████╗  █████╗ ███████╗██╗  ██╗██████╗  ██████╗
+#           ██╔══██╗██╔══██╗██╔════╝██║  ██║██╔══██╗██╔════╝
+#           ██████╔╝███████║███████╗███████║██████╔╝██║     
+#           ██╔══██╗██╔══██║╚════██║██╔══██║██╔══██╗██║     
+#           ██████╔╝██║  ██║███████║██║  ██║██║  ██║╚██████╗
+#           ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
+#
+#
+######################################################################
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# export  _JAVA_AWT_WM_NONREPARENTING=1
+
+set -o vi
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias unzip='bsdtar xvf'
+#for ly login manager. In ly the logout command doesn't work.
+# alias logout='pkill -KILL -u james'
 
-# I added it as an alias to advoid running it on startup and just when I need it
-alias java='export _JAVA_AWT_WM_NONREPARENTING=1'
+alias looking-glass-client='looking-glass-client -F -S -f /dev/kvmfr0'
 
-# PS1='[\u@\h \W]\$ '
+encrypt() {
+    if [[ $# -ne 2 ]]; then
+        echo "Usage: encrypt <input_file> <output_file>"
+        return 1
+    fi
+    local input_file="$1"
+    local output_file="$2"
+    if [[ "$input_file" == "$output_file" ]]; then
+        echo "Error: Input and output files must be different."
+        return 1
+    fi
+    openssl enc -aes-256-cbc -pbkdf2 -iter 100000 -salt -in "$input_file" -out "$output_file"
+}
+
+decrypt() {
+    if [[ $# -ne 2 ]]; then
+        echo "Usage: decrypt <input_file> <output_file>"
+        return 1
+    fi
+    local input_file="$1"
+    local output_file="$2"
+    if [[ "$input_file" == "$output_file" ]]; then
+        echo "Error: Input and output files must be different."
+        return 1
+    fi
+    openssl enc -aes-256-cbc -d -pbkdf2 -iter 100000 -in "$input_file" -out "$output_file"
+}
+
+HISTTIMEFORMAT="%F %T "
+HISTCONTROL=ignoredups
+#PS1='[\u@\h \W]\$ '
 PS1="\[\e[38;5;242m\][\[\e[38;5;72m\]\u\[\e[38;5;73m\]@\[\e[38;5;74m\]\h \[\e[1;38;5;30m\]\W\[\e[38;5;242m\]]\[\033[0m\]$ "
-# neofetch  --ascii .config/neofetch/ascii/nerv --ascii_colors 0
