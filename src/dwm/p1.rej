@@ -1,0 +1,33 @@
+--- config.def.h
++++ config.def.h
+@@ -64,6 +64,7 @@ static Key keys[] = {
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+ 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+ 	{ MODKEY,                       XK_b,      togglebar,      {0} },
++	{ MODKEY|ShiftMask,             XK_b,      hideborder,     {0} },
+ 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+ 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+ 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+--- dwm.c
++++ dwm.c
+@@ -169,6 +169,7 @@ static void focus(Client *c);
+ static void focusin(XEvent *e);
+ static void focusmon(const Arg *arg);
+ static void focusstack(const Arg *arg);
++static void hideborder(const Arg *arg);
+ static Atom getatomprop(Client *c, Atom prop);
+ static int getrootptr(int *x, int *y);
+ static long getstate(Window w);
+@@ -856,6 +857,12 @@ focusstack(const Arg *arg)
+ 	}
+ }
+ 
++void
++hideborder(const Arg *arg)
++{
++	XSetWindowBorder(dpy, selmon->sel->win, scheme[SchemeSel][ColBg].pixel);
++}
++
+ Atom
+ getatomprop(Client *c, Atom prop)
+ {
