@@ -112,3 +112,5 @@ mv .vimrc ~/
 mv vim ~/.vim
 
 echo "Setup completed."
+
+mv picom.conf /etc/xdg/picom.conf
