@@ -93,24 +93,11 @@ for dir in dmenu st dwm slstatus; do
     cd ..
 done
 
-# Move 'xsessions' to /usr/share/
-cd ly
-make
-make install installsystemd
-systemctl enable ly.service
-
 cd ~/DWM_config_src/
-mv xsessions /usr/share/
-cd /usr/share/xsessions/
-chmod +x startdwm
 
 # Move '.xinitrc' and '.vimrc' to your home directory
 mv .xinitrc ~/
 mv .vimrc ~/
-
-# Rename the 'vim' folder to '.vim' and move it to your home directory
-mv vim ~/.vim
+mv picom.conf /etc/xdg/picom.conf
 
 echo "Setup completed."
-
-mv picom.conf /etc/xdg/picom.conf
