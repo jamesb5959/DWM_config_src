@@ -13,7 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = ' ' -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = ' ' -- Same for `maplocalleader`
+vim.opt.background = "dark"
+vim.opt.number = true
+vim.opt.relativenumber = true
 
+--plugins
 require("lazy").setup({
  {
   "nvim-tree/nvim-tree.lua",
