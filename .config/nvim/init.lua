@@ -16,6 +16,7 @@ vim.g.maplocalleader = ' ' -- Same for `maplocalleader`
 vim.opt.background = "dark"
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.termguicolors = true
 
 --plugins
 require("lazy").setup({
