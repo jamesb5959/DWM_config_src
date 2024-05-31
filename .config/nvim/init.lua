@@ -194,9 +194,10 @@ require("lazy").setup({
 			"nvim-neotest/nvim-nio",
 		},
 		config = function()
+      require("dapui").setup()
 			local dap = require("dap")
 			local dapui = require("dapui")
-			
+
 			--DAP adaptor   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 			--C
 			dap.adapters.gdb = {
@@ -270,7 +271,7 @@ require("lazy").setup({
 			}
 			--
 			--
-				
+
 			dap.listeners.before.attach.dapui_config = function()
 				dapui.open()
 			end
@@ -285,17 +286,6 @@ require("lazy").setup({
 			end
 			vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, {})
 			vim.keymap.set("n", "<Leader>dc", dap.continue, {})
-			vim.keymap.set("n", "<Leader>dui", function()
-				dapui.toggle()
-			end)
-
-			vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
-				require("dap.ui.widgets").hover()
-			end)
-			vim.keymap.set("n", "<Leader>ds", function()
-				local widgets = require("dap.ui.widgets")
-				widgets.centered_float(widgets.scopes)
-			end)
 		end,
 	},
 })
