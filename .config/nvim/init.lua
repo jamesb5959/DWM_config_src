@@ -67,15 +67,11 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
+			require("nvim-web-devicons").setup({})
 			require("nvim-tree").setup({
 				view = {
 					width = 30,
 				},
-			})
-			require("nvim-web-devicons").setup({
-				-- globally enable default icons (default to false)
-				-- will get overriden by `get_icons` option
-				default = true,
 			})
 		end,
 	},
@@ -172,7 +168,7 @@ require("lazy").setup({
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered(),
+					--completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
@@ -300,15 +296,7 @@ vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 --
 --nvim-tree
-vim.keymap.set("n", "<C-n>", ":NvimTreeOpen <CR>", {})
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		-- Open NvimTree
-		require("nvim-tree.api").tree.open()
-		-- Switch to the main window
-		vim.cmd("wincmd p")
-	end,
-})
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle <CR>", {})
 vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
