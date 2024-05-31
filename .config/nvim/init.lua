@@ -210,6 +210,17 @@ require("lazy").setup({
 			end
 			vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, {})
 			vim.keymap.set("n", "<Leader>dc", dap.continue, {})
+			vim.keymap.set("n", "<Leader>dui", function()
+				dapui.toggle()
+			end)
+
+			vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+				require("dap.ui.widgets").hover()
+			end)
+			vim.keymap.set("n", "<Leader>ds", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.scopes)
+			end)
 
 			--DAP adaptor   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 			--C
