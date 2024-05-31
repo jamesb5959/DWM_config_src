@@ -78,7 +78,20 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
-			require("lualine").setup({})
+			require("lualine").setup({
+				options = {
+					disabled_filetypes = { "NvimTree" },
+					ignore_focus = {
+						"dapui_watches",
+						"dapui_breakpoints",
+						"dapui_scopes",
+						"dapui_console",
+						"dapui_stacks",
+						"dap-repl",
+						"NvimTree",
+					},
+				},
+			})
 		end,
 	},
 	{
@@ -194,10 +207,9 @@ require("lazy").setup({
 			"nvim-neotest/nvim-nio",
 		},
 		config = function()
-      require("dapui").setup()
+			require("dapui").setup()
 			local dap = require("dap")
 			local dapui = require("dapui")
-
 			--DAP adaptor   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
 			--C
 			dap.adapters.gdb = {
