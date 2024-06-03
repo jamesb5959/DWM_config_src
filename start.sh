@@ -97,7 +97,11 @@ cd ~/DWM_config_src/
 
 # Move '.xinitrc' and '.vimrc' to your home directory
 mv .xinitrc ~/
-mv .vimrc ~/
+mv .config ~/
+mkdir .virtualenvs
+cd .virtualenvs
+python -m venv debugpy
+debugpy/bin/python -m pip install debugpy
 mv picom.conf /etc/xdg/picom.conf
 
 echo "Setup completed."
