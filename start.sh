@@ -9,7 +9,12 @@ fi
 read -p "Is this setup for work or personal use? (work/personal): " setup_type
 
 # Validate the input
-if [[ "$setup_type" != "work" && "$setup_type" != "personal" ]]; then
+# Validate the input and print 1 for work and 0 for personal
+if [[ "$setup_type" == "work" ]]; then
+    echo 1
+elif [[ "$setup_type" == "personal" ]]; then
+    echo 0
+else
     echo "Invalid input. Please specify 'work' or 'personal'."
     exit 1
 fi
