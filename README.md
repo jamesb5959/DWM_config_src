@@ -1,5 +1,7 @@
 # DWM_config_src
 
+https://ffprofile.com/#start
+
 Install by running - "sudo ./start"
 start script only works with arch for now but can work with other linux disto's 
 if dependencies are installed manually 
