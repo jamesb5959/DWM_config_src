@@ -11,9 +11,9 @@ read -p "Is this setup for work or personal use? (work/personal): " setup_type
 # Validate the input
 # Define the required packages
 if [[ "$setup_type" == "work" ]]; then
-    required_packages=("ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "nvidia" "mpv" "htop")
+    required_packages=("qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "nvidia" "mpv" "htop")
 elif [[ "$setup_type" == "personal" ]]; then
-    required_packages=("ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop")
+    required_packages=("qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop")
 else
     echo "Invalid input. Please specify 'work' or 'personal'."
     exit 1
@@ -117,15 +117,23 @@ python -m venv debugpy
 debugpy/bin/python -m pip install debugpy
 mv picom.conf /etc/xdg/picom.conf
 
+sudo systemctl enable libvirtd
+sudo adduser "$(whoami)" libvirt
+sudo adduser "$(whoami)" kvm
+sudo gpasswd -a "$(whoami)" libvirt
+sudo gpasswd -a "$(whoami)" kvm
+sudo virsh -c qemu:///system net-autostart default
+sudo virsh -c qemu:///system net-start default
+
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
 sudo ufw limit 22/tcp
 #sudo ufw allow out on virbr0
-#sudo ufw allow on virbr0 to any
+sudo ufw allow on virbr0 to any
 sudo ufw status verbose
-sudo ufw status numbered
+#sudo ufw status numbered
 #sudo ufw delete 7
 
 echo "Setup completed."
