@@ -5,6 +5,15 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
+# Ask if the setup is for work or personal use
+read -p "Is this setup for work or personal use? (work/personal): " setup_type
+
+# Validate the input
+if [[ "$setup_type" != "work" && "$setup_type" != "personal" ]]; then
+    echo "Invalid input. Please specify 'work' or 'personal'."
+    exit 1
+fi
+
 # Define the required packages
 required_packages=("ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop")
 required_packages_void=("firefox" "feh" "xorg-server" "xinit" "xsetroot" "picom" "vim" "git" "neofetch" "lightdm" "lightdm-gtk-greeter" "nvidia")
@@ -117,6 +126,5 @@ sudo ufw limit 22/tcp
 sudo ufw status verbose
 sudo ufw status numbered
 #sudo ufw delete 7
-
 
 echo "Setup completed."
