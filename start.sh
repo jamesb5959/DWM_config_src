@@ -114,5 +114,8 @@ sudo ufw allow 443/tcp
 sudo ufw limit 22/tcp
 #sudo ufw allow in on virbr0 to any
 sudo ufw status verbose
+sudo ufw status numbered
+#sudo ufw delete 7
+
 
 echo "Setup completed."
