@@ -130,9 +130,8 @@ sudo ufw default allow outgoing
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
 sudo ufw limit 22/tcp
-#sudo ufw allow out on virbr0
-sudo ufw allow in on virbr0 to any
-sudo ufw allow out on virbr0 to any
+#sudo ufw allow in on virbr0 to any
+#sudo ufw allow out on virbr0 to any
 sudo ufw status verbose
 sudo ufw enable
 #sudo ufw status numbered
