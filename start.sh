@@ -104,4 +104,15 @@ python -m venv debugpy
 debugpy/bin/python -m pip install debugpy
 mv picom.conf /etc/xdg/picom.conf
 
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw limit 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw limit 22/tcp
+#sudo ufw allow in on virbr0 to any
+sudo ufw status verbose
+
 echo "Setup completed."
