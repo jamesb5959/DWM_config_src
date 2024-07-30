@@ -98,6 +98,7 @@ fi
 echo "Downloading packages completed."
 
 # Change directory to the 'src' folder
+wal -i wallpaper/road.png 
 mv src ~/src
 cd ~/src
 
@@ -113,10 +114,11 @@ cd ~/DWM_config_src/
 # Move '.xinitrc' and '.vimrc' to your home directory
 mv .xinitrc ~/
 mv .config ~/
-mkdir .virtualenvs
-cd .virtualenvs
+mkdir ~/.virtualenvs
+cd ~/.virtualenvs
 python -m venv debugpy
 debugpy/bin/python -m pip install debugpy
+cd ~/DWM_config_src/
 mv picom.conf /etc/xdg/picom.conf
 
 sudo systemctl enable libvirtd
