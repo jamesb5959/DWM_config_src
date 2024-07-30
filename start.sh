@@ -11,9 +11,11 @@ read -p "Is this setup for work or personal use? (work/personal): " setup_type
 # Validate the input
 # Define the required packages
 if [[ "$setup_type" == "work" ]]; then
-    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "nvidia" "mpv" "htop")
+    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "nvidia" "mpv" "htop" "python-pywal
+")
 elif [[ "$setup_type" == "personal" ]]; then
-    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop")
+    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop" "python-pywal
+")
 else
     echo "Invalid input. Please specify 'work' or 'personal'."
     exit 1
