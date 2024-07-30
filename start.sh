@@ -110,7 +110,8 @@ for dir in dmenu st dwm slstatus; do
 done
 
 cd ~/DWM_config_src/
-
+mv .zshrc ~/
+mv .bashrc ~/
 # Move '.xinitrc' and '.vimrc' to your home directory
 mv .xinitrc ~/
 mv .config ~/
