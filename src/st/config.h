@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-
+#include "/home/james/.cache/wal/colors-wal-st.h"
 /*
  * appearance
  *
@@ -138,40 +138,41 @@ float alpha = 0.8;
 //unsigned int defaultcs = 256;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
+//static const char *colorname[] = {
 
 	/* 8 normal colors */
-	[0] = "#7a8478", /* black   */
-	[1] = "#e67e80", /* red     */
-	[2] = "#a7c080", /* green   */
-	[3] = "#dbbc7f", /* yellow  */
-	[4] = "#7fbbb3", /* blue    */
-	[5] = "#d699b6", /* magenta */
-	[6] = "#83c092", /* cyan    */
-	[7] = "#f2efdf", /* white   */
+//	[0] = "#7a8478", /* black   */
+//	[1] = "#e67e80", /* red     */
+//	[2] = "#a7c080", /* green   */
+//	[3] = "#dbbc7f", /* yellow  */
+//	[4] = "#7fbbb3", /* blue    */
+//	[5] = "#d699b6", /* magenta */
+//	[6] = "#83c092", /* cyan    */
+//	[7] = "#f2efdf", /* white   */
 
 	/* 8 bright colors */
-	[8]  = "#a6b0a0", /* black   */
-	[9]  = "#f85552", /* red     */
-	[10] = "#8da101", /* green   */
-	[11] = "#dfa000", /* yellow  */
-	[12] = "#3a94c5", /* blue    */
-	[13] = "#df69ba", /* magenta */
-	[14] = "#35a77c", /* cyan    */
-	[15] = "#fffbef", /* white   */
+//	[8]  = "#a6b0a0", /* black   */
+//	[9]  = "#f85552", /* red     */
+//	[10] = "#8da101", /* green   */
+//	[11] = "#dfa000", /* yellow  */
+//	[12] = "#3a94c5", /* blue    */
+//	[13] = "#df69ba", /* magenta */
+//	[14] = "#35a77c", /* cyan    */
+//	[15] = "#fffbef", /* white   */
 
 	/* special colors */
-	[256] = "#232a2e", /* background */
-	[257] = "#d3c6aa", /* foreground */
-};
+//	[256] = "#232a2e", /* background */
+//	[257] = "#d3c6aa", /* foreground */
+//};
 
 /*
  *  * Default colors (colorname index)
  *   * foreground, background, cursor
  *    */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-unsigned int defaultcs = 257;
+//unsigned int defaultfg = 257;
+//unsigned int defaultbg = 256;
+//unsigned int defaultcs = 257;
+
 
 /*
  *  * Colors used, when the specific fg == defaultfg. So in reverse mode this
@@ -181,7 +182,7 @@ unsigned int defaultcs = 257;
 static unsigned int defaultitalic = 7;
 static unsigned int defaultunderline = 7;
 
-static unsigned int defaultrcs = 257;
+//static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -218,6 +219,42 @@ static unsigned int defaultattr = 11;
  * modifier, set to 0 to not use it.
  */
 static uint forcemousemod = ShiftMask;
+
+/*
+ * Xresources preferences to load at startup
+ */
+ResourcePref resources[] = {
+		{ "font",         STRING,  &font },
+		{ "color0",       STRING,  &colorname[0] },
+		{ "color1",       STRING,  &colorname[1] },
+		{ "color2",       STRING,  &colorname[2] },
+		{ "color3",       STRING,  &colorname[3] },
+		{ "color4",       STRING,  &colorname[4] },
+		{ "color5",       STRING,  &colorname[5] },
+		{ "color6",       STRING,  &colorname[6] },
+		{ "color7",       STRING,  &colorname[7] },
+		{ "color8",       STRING,  &colorname[8] },
+		{ "color9",       STRING,  &colorname[9] },
+		{ "color10",      STRING,  &colorname[10] },
+		{ "color11",      STRING,  &colorname[11] },
+		{ "color12",      STRING,  &colorname[12] },
+		{ "color13",      STRING,  &colorname[13] },
+		{ "color14",      STRING,  &colorname[14] },
+		{ "color15",      STRING,  &colorname[15] },
+		{ "background",   STRING,  &colorname[256] },
+		{ "foreground",   STRING,  &colorname[257] },
+		{ "cursorColor",  STRING,  &colorname[258] },
+		{ "termname",     STRING,  &termname },
+		{ "shell",        STRING,  &shell },
+		{ "minlatency",   INTEGER, &minlatency },
+		{ "maxlatency",   INTEGER, &maxlatency },
+		{ "blinktimeout", INTEGER, &blinktimeout },
+		{ "bellvolume",   INTEGER, &bellvolume },
+		{ "tabspaces",    INTEGER, &tabspaces },
+		{ "borderpx",     INTEGER, &borderpx },
+		{ "cwscale",      FLOAT,   &cwscale },
+		{ "chscale",      FLOAT,   &chscale },
+};
 
 /*
  * Internal mouse shortcuts.

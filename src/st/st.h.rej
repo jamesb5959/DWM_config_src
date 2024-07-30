@@ -1,7 +1,7 @@
 --- st.h
 +++ st.h
-@@ -126,3 +126,4 @@ extern unsigned int tabspaces;
+@@ -126,4 +126,3 @@ extern unsigned int tabspaces;
  extern unsigned int defaultfg;
  extern unsigned int defaultbg;
  extern unsigned int defaultcs;
-+extern float alpha;
+-extern float alpha;
