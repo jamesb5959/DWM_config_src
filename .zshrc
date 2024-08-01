@@ -114,7 +114,7 @@ alias screenshot='ffmpeg -f x11grab -video_size 1920x1200 -i $DISPLAY -vframes 1
 alias screenrec='ffmpeg -video_size 1920x1200 -framerate 60 -f x11grab -i :0.0+ output.mp4'
 #for ly login manager. In ly the logout command doesn't work.
 # alias logout='pkill -KILL -u james'
-alias looking-glass-client='looking-glass-client -F -S -f /dev/kvmfr0'
+alias looking='looking-glass-client -F -S -f /dev/kvmfr0'
 
 encrypt() {
     if [[ $# -ne 2 ]]; then

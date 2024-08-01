@@ -18,6 +18,7 @@
 
 set -o vi
 alias ls='ls --color=auto'
+alias vim='nvim'
 alias grep='grep --color=auto'
 alias unzip='bsdtar xvf'
 alias screenshot='ffmpeg -f x11grab -video_size 1920x1200 -i $DISPLAY -vframes 1 screen.png'
