@@ -1,5 +1,7 @@
---- dwm.c
-+++ dwm.c
+diff --git a/dwm.c b/dwm.c
+index a96f33c..24b1eeb 100644
+--- a/dwm.c
++++ b/dwm.c
 @@ -163,6 +163,7 @@ static void detachstack(Client *c);
  static Monitor *dirtomon(int dir);
  static void drawbar(Monitor *m);
