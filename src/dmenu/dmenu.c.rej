@@ -10,14 +10,3 @@
  struct item {
  	char *text;
  	struct item *left, *right;
-@@ -122,9 +86,7 @@ drawitem(struct item *item, int x, int y, int w)
- 	else
- 		drw_setscheme(drw, scheme[SchemeNorm]);
- 
--	int r = drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
--	drawhighlights(item, x, y, w);
--	return r;
-+	return drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
- }
- 
- static void
