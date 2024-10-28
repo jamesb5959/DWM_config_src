@@ -11,11 +11,9 @@ read -p "Is this setup for work or personal use? (work/personal): " setup_type
 # Validate the input
 # Define the required packages
 if [[ "$setup_type" == "work" ]]; then
-    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "xwallpaper" "nsxiv" "xorg-server" "xorg-xrdb" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "nvidia" "mpv" "htop" "python-pywal
-" "zsh")
+    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "xwallpaper" "nsxiv" "xorg-server" "xorg-xrdb" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "nvidia" "mpv" "htop" "python-pywal" "zsh")
 elif [[ "$setup_type" == "personal" ]]; then
-    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xrdb" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop" "python-pywal
-" "zsh")
+    required_packages=("xss-lock" "mtr" "qemu" "libvirt" "virt-manager" "qemu-full" "dnsmasq" "bridge-utils" "ttf-jetbrains-mono-nerd" "whois" "ufw" "firefox" "discord" "xwallpaper" "nsxiv" "xorg-server" "xorg-xrdb" "xorg-xinit" "picom" "neovim" "fd" "ripgrep" "git" "neofetch" "asusctl" "supergfxctl" "rog-control-center" "nvidia" "mpv" "htop" "python-pywal" "zsh")
 else
     echo "Invalid input. Please specify 'work' or 'personal'."
     exit 1
@@ -99,8 +97,8 @@ echo "Downloading packages completed."
 
 # Change directory to the 'src' folder
 wal -i wallpaper/road.png 
-mv src ~/src
-cd ~/src
+mv src /home/james/src
+cd /home/james/src
 
 # Compile and install in the specified order
 for dir in dmenu st dwm slstatus; do
@@ -109,17 +107,17 @@ for dir in dmenu st dwm slstatus; do
     cd ..
 done
 
-cd ~/DWM_config_src/
-mv .zshrc ~/
-mv .bashrc ~/
+cd /home/james/DWM_config_src/
+mv .zshrc /home/james/
+mv .bashrc /home/james/
 # Move '.xinitrc' and '.vimrc' to your home directory
-mv .xinitrc ~/
-mv .config ~/
-mkdir ~/.virtualenvs
-cd ~/.virtualenvs
-python -m venv debugpy
-debugpy/bin/python -m pip install debugpy
-cd ~/DWM_config_src/
+mv .xinitrc /home/james/
+mv .config /home/james/
+#mkdir /home/james/.virtualenvs
+#cd /home/james/.virtualenvs
+#python -m venv debugpy
+#debugpy/bin/python -m pip install debugpy
+#cd /home/james/DWM_config_src/
 mv picom.conf /etc/xdg/picom.conf
 
 sudo systemctl enable libvirtd
@@ -130,18 +128,18 @@ sudo gpasswd -a "$(whoami)" kvm
 sudo virsh -c qemu:///system net-autostart default
 sudo virsh -c qemu:///system net-start default
 
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
-sudo ufw limit 22/tcp
+#sudo ufw default deny incoming
+#sudo ufw default allow outgoing
+#sudo ufw allow 80/tcp
+#sudo ufw allow 443/tcp
+#sudo ufw limit 22/tcp
 #sudo ufw allow in on virbr0 to any
 #sudo ufw allow out on virbr0 to any
-sudo ufw status verbose
-sudo ufw enable
+#sudo ufw status verbose
+#sudo ufw enable
 #sudo ufw status numbered
 #sudo ufw delete 7
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Setup completed."
